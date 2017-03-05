@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="CourseIDHere" version="1"
+	      xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
+	      xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3"
+	      xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3"
+	      xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3"
+	      xmlns:imsss="http://www.imsglobal.org/xsd/imsss"
+	      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	      xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 SCORM-schemas/imscp_v1p1.xsd
+	                          http://www.adlnet.org/xsd/adlcp_v1p3 SCORM-schemas/adlcp_v1p3.xsd
+	                          http://www.adlnet.org/xsd/adlseq_v1p3 SCORM-schemas/adlseq_v1p3.xsd
+	                          http://www.adlnet.org/xsd/adlnav_v1p3 SCORM-schemas/adlnav_v1p3.xsd
+	                          http://www.imsglobal.org/xsd/imsss SCORM-schemas/imsss_v1p0.xsd">
+	
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>2004 4th Edition</schemaversion>
+  </metadata>
+  <organizations default="course-code-here">
+    <organization identifier="course-code-here" adlseq:objectivesGlobalToSystem="false">
+      <title>Course Title here</title>
+      <item identifier="sco_code" identifierref="resource_1" isvisible="true">
+        <title>Course Title here</title>
+        <imsss:sequencing>
+          <imsss:controlMode useCurrentAttemptObjectiveInfo="true" useCurrentAttemptProgressInfo="true" />
+          <imsss:deliveryControls objectiveSetByContent="true"/>
+        </imsss:sequencing>
+        <adlnav:presentation>
+          <adlnav:navigationInterface>
+            <adlnav:hideLMSUI>continue</adlnav:hideLMSUI>
+            <adlnav:hideLMSUI>previous</adlnav:hideLMSUI>
+            <adlnav:hideLMSUI>abandon</adlnav:hideLMSUI>
+            <adlnav:hideLMSUI>abandonAll</adlnav:hideLMSUI>
+            <adlnav:hideLMSUI>exitAll</adlnav:hideLMSUI>
+            <adlnav:hideLMSUI>exit</adlnav:hideLMSUI>
+          </adlnav:navigationInterface>
+        </adlnav:presentation>
+      </item>
+      <imsss:sequencing>
+        <imsss:controlMode flow="true" choice="false" />
+        <imsss:sequencingRules>
+          <imsss:postConditionRule>
+            <imsss:ruleConditions conditionCombination="all">
+              <imsss:ruleCondition condition="always" />
+            </imsss:ruleConditions>
+            <imsss:ruleAction action="retryAll" />
+          </imsss:postConditionRule>
+        </imsss:sequencingRules>
+        <imsss:rollupRules rollupObjectiveSatisfied="true" rollupProgressCompletion="true" objectiveMeasureWeight="0">
+          <imsss:rollupRule childActivitySet="all">
+            <imsss:rollupConditions conditionCombination="any">
+              <imsss:rollupCondition condition="satisfied" />
+            </imsss:rollupConditions>
+            <imsss:rollupAction action="satisfied" />
+          </imsss:rollupRule>
+          <imsss:rollupRule childActivitySet="any">
+            <imsss:rollupConditions conditionCombination="any">
+              <imsss:rollupCondition operator="not" condition="satisfied" />
+            </imsss:rollupConditions>
+            <imsss:rollupAction action="notSatisfied" />
+          </imsss:rollupRule>
+          <imsss:rollupRule childActivitySet="any">
+            <imsss:rollupConditions conditionCombination="any">
+              <imsss:rollupCondition operator="not" condition="satisfied" />
+            </imsss:rollupConditions>
+            <imsss:rollupAction action="incomplete" />
+          </imsss:rollupRule>
+          <imsss:rollupRule childActivitySet="all">
+            <imsss:rollupConditions conditionCombination="any">
+              <imsss:rollupCondition condition="completed" />
+            </imsss:rollupConditions>
+            <imsss:rollupAction action="completed" />
+          </imsss:rollupRule>
+        </imsss:rollupRules>
+      </imsss:sequencing>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="resource_1" adlcp:scormType="sco" href="index.html" type="webcontent">
+      <file href="index.html" />
+    </resource>
+  </resources>
+</manifest>
