@@ -1,5 +1,5 @@
 # SCORM-Manifests
-Boilerplate SCORM Manifests for SCORm 1.2 and 2004
+Boilerplate SCORM Manifests for SCORM 1.2 and 2004
 
 *Intended to be used for single-SCO courses.*
 
